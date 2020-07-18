@@ -16,20 +16,20 @@
             <div class="warp">
               <h1 class="title">医院诊疗信息管理系统</h1>
               <div class="form-table">
-                <form action="" method="post">
+                <form>
                   <div class="username">
                     <label for="username"></label>
-                    <i class="icon-username"></i>
-                    <input type="text" name="username" id="username" placeholder="请输入用户名">
+                    <i class="iconfont icon-yonghuming"></i>
+                    <input type="text" v-model="form.username" id="username" placeholder="请输入用户名">
                   </div>
                   <div class="password">
                     <label for="password"></label>
-                    <i class="icon-password"></i>
-                    <input type="password" name="password" id="password" placeholder="请输入密码">
+                    <i class="iconfont icon-mimalan"></i>
+                    <input type="password" v-model="form.password" id="password" placeholder="请输入密码">
                   </div>
                   <div class="submit">
-                    <label for="password"></label>
-                    <input type="submit" name="password" value="登录">
+                    <label for="login"></label>
+                    <input type="button" name="login" @click="loginClick" value="登录" >
                   </div>
                 </form>
               </div>
@@ -42,11 +42,28 @@
 </template>
 
 <script>
+  import userInfoCheck from '../../network/login'
   export default {
     name: "Login",
+    components:{
+
+    },
     data(){
       return {
-
+        form:{
+          username: '',
+          password: ''
+        }
+      }
+    },
+    methods:{
+      loginClick(){
+        console.log("---")
+        //1.验证用户信息是否正确，实现登录验证
+        userInfoCheck({username: this.form.username,password: this.form.password})
+          .then(res=>{
+            console.log(res);
+          })
       }
     }
   }
@@ -138,6 +155,7 @@
   }
 
   .right .form-table div input{
+    width: 75%;
     padding: 14px 30px 14px 50px;
     margin: inherit;
     border-radius: 10px;
@@ -145,14 +163,27 @@
   }
 
   .right .form-table .submit input{
-    width: 278px;
+    width: 75%;
     border: none;
     outline-style: none;
     padding: 14px;
     border-radius: 24px;
     background-color: #666ee8;
     color: #ffffff;
+    cursor:pointer;
   }
+  /*设置样式icon开始*/
+  .username,.password{
+    position: relative;
+  }
+  .iconfont{
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    font-size: 30px;
+    color: #666ee8;
+  }
+  /*设置样式icon结束*/
 
   /*  中间内容部分布局结束*/
 </style>

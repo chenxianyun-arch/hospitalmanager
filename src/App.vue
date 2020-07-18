@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 import Login from './views/login/Login'
 export default {
   name: 'App',
@@ -16,5 +15,5 @@ export default {
 </script>
 
 <style>
-@import "static/css/base.css";
+@import "static/css/style/base.css";
 </style>
