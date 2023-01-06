@@ -16,7 +16,7 @@
   "devDependencies": {
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-service": "~5.0.8",
     "babel-plugin-component": "^1.1.1",
     "vue-template-compiler": "^2.6.11"
   },
